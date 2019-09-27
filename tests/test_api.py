@@ -13,7 +13,7 @@ def test_find_place(monkeypatch):
             pass
         def json(self):
             return {
-                "formated_address": expected_result["address"],
+                "formatted_address": expected_result["address"],
                 "candidates": [{
                         "geometry": {
                             "location": {

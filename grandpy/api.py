@@ -13,19 +13,20 @@ class GoogleMapsDownloader:
             "fields": "formatted_address,geometry",
         }
         response = requests.get(
-            "https://maps.googleapis.com/maps/api/place/findplacefromtext/json", params=payload)
-        data = response.json()
+            "https://maps.googleapis.com/maps/api/place/findplacefromtext/json", params=payload).json()
+        # data = response.json()
         return {
-            "formatted_address": data['candidates'][0]["formatted_address"],
-            "candidates": [{
-                    "geometry": {
-                        "location": {
-                            "lat": data['candidates'][0]['geometry']['location']["lat"],
-                            "lng": data['candidates'][0]['geometry']['location']["lng"]
-                        }
-                    }
-                }
-            ]
+            "address": response['candidates'][0]["formatted_address"],
+            "lat": response['candidates'][0]['geometry']['location']["lat"],
+            "lng": response['candidates'][0]['geometry']['location']["lng"]
+            #         "geometry": {
+            #             "location": {
+            #                 "lat": response['candidates'][0]['geometry']['location']["lat"],
+            #                 "lng": response['candidates'][0]['geometry']['location']["lng"]
+            #             }
+            #         }
+            #     }
+            # ]
         }
 
 class WikiDownloader:
