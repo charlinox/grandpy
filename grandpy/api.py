@@ -16,12 +16,12 @@ class GoogleMapsDownloader:
             "https://maps.googleapis.com/maps/api/place/findplacefromtext/json", params=payload)
         data = response.json()
         return {
-            "formated_address": data["formated_address"],
+            "formatted_address": data['candidates'][0]["formatted_address"],
             "candidates": [{
                     "geometry": {
                         "location": {
-                            "lat": data["latitude"],
-                            "lng": data["longitude"]
+                            "lat": data['candidates'][0]['geometry']['location']["lat"],
+                            "lng": data['candidates'][0]['geometry']['location']["lng"]
                         }
                     }
                 }
@@ -35,7 +35,7 @@ class WikiDownloader:
             "action": "query",
             "list": "geosearch",
             "gsradius": 200,
-            "gscoord": location['lat'] + "|" + location['lng'],
+            "gscoord": str(location['lat']) + "|" + str(location['lng']),
             "gslimit": 1,
         }
         response = requests.get(

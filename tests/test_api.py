@@ -2,10 +2,11 @@ from grandpy.api import WikiDownloader, WikiDownloader, GoogleMapsDownloader
 
 
 def test_find_place(monkeypatch):
+    googleMapsDownloader = GoogleMapsDownloader()
     expected_result = {
         "address": "une adresse",
-        "latitude": 12.134,
-        "longitude": -30.4135
+        "lat": 12.134,
+        "lng": -30.4135
     }
     class MockRequestsGet:
         def __init__(self, url, params):
@@ -16,18 +17,19 @@ def test_find_place(monkeypatch):
                 "candidates": [{
                         "geometry": {
                             "location": {
-                                "lat": expected_result["latitude"],
-                                "lng": expected_result["longitude"]
+                                "lat": expected_result["lat"],
+                                "lng": expected_result["lng"]
                             }
                         }
                     }
                 ]
             }
     monkeypatch.setattr('requests.get', MockRequestsGet)
-    assert find_place("question") == expected_result
+    assert googleMapsDownloader.find_place("question") == expected_result
 
 
 def test_fetch_by_coord(monkeypatch):
+    wikiDownloader = WikiDownloader()
     expected_result = {"Academy of Art University"}
     class MockRequestsGet:
         def __init__(self, url, params):
@@ -42,10 +44,11 @@ def test_fetch_by_coord(monkeypatch):
                 }
             }
     monkeypatch.setattr('requests.get', MockRequestsGet)
-    assert fetch_by_coord({"lat" : -33.859, "lng" : 151.209}) == expected_result
+    assert wikiDownloader.fetch_by_coord({"lat" : -33.859, "lng" : 151.209}) == expected_result
 
 
 def test_fetch_by_title(monkeypatch):
+    wikiDownloader = WikiDownloader()
     expected_result = {
         "title": "Academy of Art University",
         "extract": "L\u2019Academy of Art University...",
@@ -67,4 +70,4 @@ def test_fetch_by_title(monkeypatch):
                 }
             }
     monkeypatch.setattr('requests.get', MockRequestsGet)
-    assert fetch_by_title("title", 6422233) == expected_result
+    assert wikiDownloader.fetch_by_title("title", 6422233) == expected_result
