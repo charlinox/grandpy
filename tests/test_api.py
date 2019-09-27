@@ -13,16 +13,17 @@ def test_find_place(monkeypatch):
             pass
         def json(self):
             return {
-                "formatted_address": expected_result["address"],
-                "candidates": [{
-                        "geometry": {
-                            "location": {
-                                "lat": expected_result["lat"],
-                                "lng": expected_result["lng"]
-                            }
-                        }
-                    }
-                ]
+                "address": expected_result["address"],
+                "lat": expected_result["lat"],
+                "lng": expected_result["lng"]
+                #         "geometry": {
+                #             "location": {
+                #                 "lat": expected_result["lat"],
+                #                 "lng": expected_result["lng"]
+                #             }
+                #         }
+                #     }
+                # ]
             }
     monkeypatch.setattr('requests.get', MockRequestsGet)
     assert googleMapsDownloader.find_place("question") == expected_result
