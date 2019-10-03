@@ -35,13 +35,13 @@ class GoogleMapsDownloader:
                     info['address'] = (
                         data['candidates'][0]["formatted_address"]
                     )
-                    info['latitude'] = (
+                    info['lat'] = (
                         data['candidates'][0]['geometry']['location']["lat"]
                     )
-                    info['longitude'] = (
+                    info['lng'] = (
                         data['candidates'][0]['geometry']['location']["lng"]
                     )
-                    info['error'] = True
+                    info['error'] = False
         except ConnectionError:
             pass
         return info
@@ -62,8 +62,8 @@ class WikiDownloader:
         if (
             not location
             or not isinstance(location, dict)
-            or "latitude" not in location
-            or "longitude" not in location
+            or "lat" not in location
+            or "lng" not in location
             or location['error']
         ):
             return info
@@ -71,7 +71,7 @@ class WikiDownloader:
             "action": "query",
             "list": "geosearch",
             "gsradius": 200,
-            "gscoord": f"{location['latitude']}|{location['longitude']}",
+            "gscoord": f"{location['lat']}|{location['lng']}",
             "gslimit": 1,
         }
 
@@ -94,7 +94,7 @@ class WikiDownloader:
         if (
             not info
             or not isinstance(info, dict)
-            or info['error']:
+            or info['error']
             or "title" not in info
         ):
             return info
