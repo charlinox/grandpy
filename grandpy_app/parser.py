@@ -19,22 +19,22 @@ class Parser:
         )
         return self
 
-    def parser_text(self):
-        """ Extract the place by parsing the question """
-        self.text = re.search(
-            r"(ou se trouve|ou se situe|ou est|quelle est l'adresse de|aller|aller a|aller au| aller aux)\s+([^,.?!]+)",
-            self.text
-        ).group(2)
-        return self
-
     def remove_capitals(self):
         """ Remove capitals """
         self.text = self.text.lower()
         return self
 
+    def parser_text(self):
+        """ Extract the place by parsing the question """
+        self.text = re.search(
+            r"(ou se trouve|ou se situe|ou est|l'adresse de| l'adresse d'|aller|aller a|aller au|aller aux|direction de|l'endroit nommé)\s+([^,.?!]+)",
+            self.text
+        ).group(2)
+        return self
+
     def start(self):
         """  Start  """
         self.remove_accents()
-        self.parser_text()
         self.remove_capitals()
+        self.parser_text()
         return self

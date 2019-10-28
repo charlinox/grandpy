@@ -42,6 +42,10 @@ class GoogleMapsDownloader:
                         data['candidates'][0]['geometry']['location']["lng"]
                     )
                     info['error'] = False
+                elif data["status"] == "INVALID_REQUEST":
+                    info["error"] = "INVALID_REQUEST"
+                elif data["status"] == "ZERO_RESULTS":
+                    info["error"] = "ZERO_RESULTS"
         except ConnectionError:
             pass
         return info
@@ -51,7 +55,7 @@ class WikiDownloader:
     """ Download coordinates and summary on Wikipedia API """
 
     def fetch_by_coord(self, location):
-        """ Fetch datas of site by location on Wikipedia """
+        """ Fetch place data by location on Wikipedia """
         info = {
             "title": "",
             "pageid": None,

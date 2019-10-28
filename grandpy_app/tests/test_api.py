@@ -23,7 +23,7 @@ def test_find_place(monkeypatch):
                             "location": {
                                 "lat": expected_result["lat"],
                                 "lng": expected_result["lng"]
-                                }
+                            }
                         }
                     }
                 ]
