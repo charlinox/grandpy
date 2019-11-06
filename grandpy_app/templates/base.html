@@ -13,12 +13,14 @@
             <img src="{{ url_for('static', filename='images/gpy_simpsonp.jpg') }}"
             alt="Grand père Simpson"/>
         </div>
+        <p class="titre">La minute de papy</p>
     </header>
 
     <section>
         <div id="chat_window">
             <div id="questions">
-                <form id="form" method="post">
+                {% block question %}{% endblock %}
+                <!-- <form id="form" method="post">
                     <p>
                         <label for="question"></label>
                         <input type="text" name="question" id="question"
@@ -26,7 +28,7 @@
                         minlength="60" required>
                         <input type="submit" value="Envoyer">
                     </p>    
-                </form>
+                </form> -->
             </div>
             <div id="responses">
                 <!-- <div class="response">

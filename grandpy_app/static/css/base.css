@@ -21,6 +21,14 @@ header, footer
     margin: 0px 0px 5px 0px;
 }
 
+.titre
+{
+    width: 100%;
+    text-align: center;
+    margin-left: -66px;
+    align-self: center
+}
+
 footer
 {
     margin: 5px 0px 0px 0px;
@@ -45,6 +53,11 @@ section
     display: flex;
     flex: 1;
     justify-content: center;
+}
+
+.titre
+{
+    font-size: 1.5rem;
 }
 
 #chat-window
