@@ -24,8 +24,7 @@
                     <p>
                         <label for="question"></label>
                         <input type="text" name="question" id="question"
-                        placeholder="Bonjour, mon poussin. Tu voulais me demander quelque chose ?"
-                        minlength="60" required>
+                        placeholder="Bonjour, mon poussin. Tu voulais me demander quelque chose ?">
                         <input type="submit" value="Envoyer">
                     </p>    
                 </form> -->
@@ -48,7 +47,9 @@
             <img src="{{ url_for('static', filename='images/gpy_simpson2p.jpg') }}" alt="Grand père Simpson au revoir"/>
         </div>
     </footer>
-
+    <script type="text/javascript">
+        var csrf_token = "{{ csrf_token() }}";
+    </script>
     <script src="{{ url_for('static', filename='js/base.js') }}"></script>
     <script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
     <script async defer

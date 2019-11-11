@@ -26,10 +26,12 @@ class Parser:
 
     def parser_text(self):
         """ Extract the place by parsing the question """
-        self.text = re.search(
+        match = re.search(
             r"(ou se trouve|ou se situe|ou est|l'adresse de| l'adresse d'|aller|aller a|aller au|aller aux|direction de|l'endroit nommé)\s+([^,.?!]+)",
             self.text
-        ).group(2)
+        )
+        if match:
+            self.text= match.group(2)
         return self
 
     def start(self):
@@ -37,4 +39,4 @@ class Parser:
         self.remove_accents()
         self.remove_capitals()
         self.parser_text()
-        return self
+        return self.text

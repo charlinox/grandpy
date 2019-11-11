@@ -11,6 +11,7 @@ def grand_py_answer(error):
             "Je ne connais pas. Tu es sur que ce lieu existe ?"
             ]
         )
+        grandpy_answer2 = ""
     else:
         grandpy_answer1 = random.choice(
             [

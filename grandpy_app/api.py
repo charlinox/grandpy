@@ -19,7 +19,7 @@ class GoogleMapsDownloader:
         if not question or not isinstance(question, str):
             return info
         payload = {
-            "key": "AIzaSyDGhb7J_7ElftJMq1Q42XT27yiYckppDjo",
+            "key": os.environ.get("API_KEY_BACK"),
             "input": question,
             "inputtype": "textquery",
             "fields": "formatted_address,geometry",
@@ -78,6 +78,7 @@ class WikiDownloader:
             "gsradius": 200,
             "gscoord": f"{location['lat']}|{location['lng']}",
             "gslimit": 1,
+            "format": "json"
         }
 
         try:
@@ -85,6 +86,7 @@ class WikiDownloader:
                 "https://fr.wikipedia.org/w/api.php", params=payload
             )
             if response.status_code == 200:
+                print(response.content)
                 data = response.json()
                 if data['query']['geosearch']:
                     info['title'] = data['query']['geosearch'][0]['title']
@@ -110,6 +112,7 @@ class WikiDownloader:
             "titles": info['title'],
             "inprop": "url",
             "explaintext": "",
+            "format": "json"
         }
         
         try:

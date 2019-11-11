@@ -36,7 +36,6 @@ function htmlElements(responseText) {
     }
     response.appendChild(article);
 
-    var article = document.querySelector(".wikipedia_article");
     a = document.createElement("a");
     a.href = data['fullurl'];
     a.textContent = "En savoir plus";
@@ -47,5 +46,5 @@ var form = document.querySelector("form");
 form.addEventListener("submit", function (e) {
     e.preventDefault();
     var data = new FormData(form);
-    ajaxPost(localhost/api, data, htmlElements);
+    ajaxPost("/api", data, htmlElements);
 });

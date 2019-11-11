@@ -33,5 +33,6 @@ function ajaxPost(url, data, callback) {
     req.addEventListener("error", function () {
         console.error("Erreur réseau avec l'URL " + url);
     });
+    req.setRequestHeader("X-CSRFToken", csrf_token);
     req.send(data);
 }
