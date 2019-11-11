@@ -19,7 +19,7 @@ class GoogleMapsDownloader:
         if not question or not isinstance(question, str):
             return info
         payload = {
-            "key": "AIzaSyC0o3amaUK69TJd7GOTQKiUQ-2Rlu1uex8",
+            "key": "AIzaSyDGhb7J_7ElftJMq1Q42XT27yiYckppDjo",
             "input": question,
             "inputtype": "textquery",
             "fields": "formatted_address,geometry",

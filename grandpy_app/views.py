@@ -21,7 +21,7 @@ def question():
         'question.html',
         title='Question à Grang Py',
         form=form,
-        SECRET_KEY=app.config['SECRET_KEY']
+        API_KEY=app.config['API_KEY']
     )
 
 # @app.route('/question', methods=['POST'])

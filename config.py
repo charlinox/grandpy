@@ -1,7 +1,7 @@
 import os
 
 class Config(object):
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'AIzaSyDGhb7J_7ElftJMq1Q42XT27yiYckppDjo'
+    API_KEY = os.environ.get('API_KEY') or 'AIzaSyDGhb7J_7ElftJMq1Q42XT27yiYckppDjo'
 
 # To generate a new secret key:
 # >>> import random, string
