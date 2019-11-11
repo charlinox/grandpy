@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # coding: utf-8
 
-from random import choice
+from random import choice as random_choice
 from flask import jsonify
 
 from .parser import Parser
@@ -35,6 +35,7 @@ def main(question):
             "Mais t'ai-je déjà raconté l'histoire de ce quartier qui m'a vu en culottes courtes ? ",
             "Je pourrais t'en raconter de belles sur ce coin. Tiens par exemple. "
         ]
+
     data = {
         "address" : data_localisation["address"],
         "lat" : data_localisation["lat"],
@@ -44,7 +45,7 @@ def main(question):
         "extract" : data_by_title["extract"],
         "fullurl" : data_by_title["fullurl"],
         "error" : data_localisation["error"],
-        "grandpy_answer" : choice(grandpy_answer),
-        "grandpy_answer2" : choice(grandpy_answer2)
+        "grandpy_answer" : random_choice(grandpy_answer),
+        "grandpy_answer2" : random_choice(grandpy_answer2)
     }
     return jsonify(data)
