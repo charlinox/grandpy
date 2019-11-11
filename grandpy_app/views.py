@@ -1,8 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, request, render_template
+
 from config import Config
-from .parser import Parser
-from .api import GoogleMapsDownloader, WikiDownloader
 from .forms import QuestionForm
+from .main import main
 
 app = Flask(__name__)
 
@@ -15,22 +15,21 @@ def index():
     return render_template("base.html", title="Grand Py")
 
 @app.route('/question')
-def login():
+def question():
     form = QuestionForm()
     return render_template('question.html', title='Question à Grang Py', form=form)
+
+# @app.route('/question', methods=['POST'])
+# def question():
+    # if request.method == "POST":
+#     return request.form['question']
 
 @app.route("/api", methods=["POST"])
 def api():
     form = QuestionForm()
     if form.validate_on_submit():
-        data = form.post.question
-        parser = Parser(data)
-        parsed_question = parser.start()
-        data_localisation = GoogleMapsDownloader(parsed_question)
-        data_wiki = WikiDownloader(data_localisation)
-        data_by_coord = data_wiki.fetch_by_coord(data_localisation)
-        data_by_title = data_wiki.fetch_by_title(data_by_coord)
-        return
+        question = form.post.question
+        api_data = main(question)
 
 # if __name__ == "__main__":
 #     app.run(debug=True)

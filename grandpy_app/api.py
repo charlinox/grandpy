@@ -6,6 +6,7 @@ from requests.exceptions import ConnectionError
 
 class GoogleMapsDownloader:
     """ Download location of site on Googlemaps API"""
+    
 
     def find_place(self, question):
         """ Find location of site """

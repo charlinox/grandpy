@@ -1,7 +1,5 @@
-
-
-
-function html_elements(response) {
+function htmlElements(responseText) {
+    var data = JSON.parse(responseText);
     var responses = document.querySelector("#responses");
     response = document.createElement("div");
     response.classList.add("response");
@@ -10,19 +8,37 @@ function html_elements(response) {
     var response = document.querySelector(".response");
     p = document.createElement("p");
     p.classList.add("grandpy-answer");
-    p.textContent = 
-    div = document.createElement("div");
-    div.classList.add("map");
+    p.textContent = data["grandpy_answer"] + data["address"];
+    response.appendChild(p);
+
+    var map = document.createElement("div");
+    map.classList.add("map");
+    var mapObject = new google.maps.Map(map, {
+        center: {
+            lat: data["lat"], 
+            lng: data["lng"]
+        },
+        zoom: 8
+    });
+    var markerObject = new google.maps.Marker({
+        position: {
+            lat: data["lat"],
+            lng: data["lng"]
+        }, 
+        map: mapObject}
+    );
+    response.appendChild(map);
+    
     article = document.createElement("article");
     article.classList.add("wikipedia_article");
-    article.textContent = data.info['extract'];
-    response.appendChild(p);
-    response.appendChild(div);
+    if (data["error"] == false) {
+        p.textContent = data["grandpy_answer2"] + data['extract'];
+    }
     response.appendChild(article);
 
     var article = document.querySelector(".wikipedia_article");
     a = document.createElement("a");
-    a.href = info['fullurl'];
+    a.href = data['fullurl'];
     a.textContent = "En savoir plus";
     article.appendChild(a);
 }
@@ -31,8 +47,5 @@ var form = document.querySelector("form");
 form.addEventListener("submit", function (e) {
     e.preventDefault();
     var data = new FormData(form);
-    ajaxPost(localhost/api, data, function (response) {
-        var data = JSON.parse(reponse);
-        html_elements(data);
-    });
+    ajaxPost(localhost/api, data, htmlElements);
 });
