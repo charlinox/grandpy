@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # coding: utf-8
 
-from random import choice as random_choice
+import random
 from flask import jsonify
 
 from .parser import Parser
@@ -45,7 +45,7 @@ def main(question):
         "extract" : data_by_title["extract"],
         "fullurl" : data_by_title["fullurl"],
         "error" : data_localisation["error"],
-        "grandpy_answer" : random_choice(grandpy_answer),
-        "grandpy_answer2" : random_choice(grandpy_answer2)
+        "grandpy_answer" : random.choice(grandpy_answer),
+        "grandpy_answer2" : random.choice(grandpy_answer2)
     }
     return jsonify(data)

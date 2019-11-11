@@ -17,7 +17,12 @@ def index():
 @app.route('/question')
 def question():
     form = QuestionForm()
-    return render_template('question.html', title='Question à Grang Py', form=form)
+    return render_template(
+        'question.html',
+        title='Question à Grang Py',
+        form=form,
+        SECRET_KEY=app.config['SECRET_KEY']
+    )
 
 # @app.route('/question', methods=['POST'])
 # def question():
@@ -29,7 +34,7 @@ def api():
     form = QuestionForm()
     if form.validate_on_submit():
         question = form.post.question
-        api_data = main(question)
+        main(question)
 
 # if __name__ == "__main__":
 #     app.run(debug=True)
