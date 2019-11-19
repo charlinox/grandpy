@@ -1,7 +1,6 @@
-3# coding: utf-8
-
 import requests
 from requests.exceptions import ConnectionError
+from . import views
 
 
 class GoogleMapsDownloader:
@@ -19,7 +18,7 @@ class GoogleMapsDownloader:
         if not question or not isinstance(question, str):
             return info
         payload = {
-            "key": os.environ.get("API_KEY_BACK"),
+            "key": views.app.config['API_KEY_BACK'],
             "input": question,
             "inputtype": "textquery",
             "fields": "formatted_address,geometry",

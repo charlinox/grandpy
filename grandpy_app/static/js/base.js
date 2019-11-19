@@ -42,9 +42,19 @@ function htmlElements(responseText) {
     article.appendChild(a);
 }
 
+function displayImg() {
+    var img = new Image();
+    img.addEventListener('load', function() {
+    });
+    img.src = "static/images/waiting.gif";
+}
+
 var form = document.querySelector("form");
 form.addEventListener("submit", function (e) {
     e.preventDefault();
+    displayImg();
     var data = new FormData(form);
     ajaxPost("/api", data, htmlElements);
 });
+
+document.getElementById('overlay').style.display = 'none';

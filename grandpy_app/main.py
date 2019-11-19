@@ -14,7 +14,6 @@ def main(question):
     print(parsed_question)
     downloader = GoogleMapsDownloader()
     data_localisation = downloader.find_place(parsed_question)
-    print(data_localisation)
     data_wiki = WikiDownloader()
     data_by_coord = data_wiki.fetch_by_coord(data_localisation)
     data_by_title = data_wiki.fetch_by_title(data_by_coord)
