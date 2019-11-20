@@ -5,7 +5,7 @@ body
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0px;
 }
 
@@ -51,9 +51,10 @@ section
     border: 1px solid black;
     border-radius: 10px;
     display: flex;
-    flex: 1;
+    flex-grow: 1;
     justify-content: center;
     padding: 10px;
+    height: calc(100vh-2*90px);
 }
 
 .titre
@@ -71,6 +72,7 @@ section
     padding: 10px;
     border: 1px solid black;
     border-radius: 10px;
+    height: 100%;
 }
 
 #questions
@@ -89,7 +91,8 @@ section
     background-color: rgb(115, 195, 241);
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex-grow: 1;
+    /* height: 500px; */
     overflow-y : scroll;
 }
 
@@ -106,4 +109,21 @@ section
     text-align: center; /* Pour centrer l'image que l'overlay contiendra */
     /* Ci-dessous, nous appliquons un background de couleur noire et d'opacité 0.6. Il s'agit d'une propriété CSS3. */
     /* background-color: rgba(0,0,0,0.6); */
+
+    /* display : none; Par défaut, on cache l'overlay */
+    /* position: absolute; postulat de départ */
+    /* top: 50%; left: 50%; /* à 50%/50% du parent référent */
+    /* transform: translate(-50%, -50%); décalage de 50% de sa propre taille */
+    /* margin-top: 50vh; poussé de la moitié de hauteur de viewport */
+    /* transform: translateY(-50%); tiré de la moitié de sa propre hauteur */
+
 }
+
+#overlay img {
+    margin-top: 100px;
+}
+
+/* p {
+    margin-top: 300px;
+    text-align: center;
+} */
