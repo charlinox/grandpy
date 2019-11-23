@@ -1,6 +1,5 @@
 function htmlElements(responseText) {
     document.body.style.cursor = "default";
-    // document.getElementById('overlay').style.display = 'none'; // graphic cursor
     
     var data = JSON.parse(responseText);
     var responses = document.querySelector("#responses");
@@ -48,29 +47,10 @@ function htmlElements(responseText) {
     element.scrollIntoView();
 }
 
-// function displayImg() {
-//     var img = new Image(),
-//         overlay = document.getElementById('overlay');
-//     img.addEventListener('load', function() {
-//         overlay.appendChild(img);
-//     });
-//     img.src = "static/images/waiting.gif";
-//     overlay.style.display = 'block';
-// }
-
 var form = document.querySelector("form");
 form.addEventListener("submit", function (e) {
     e.preventDefault();
-    // displayImg();
     var data = new FormData(form);
     ajaxPost("/api", data, htmlElements);
-    // document.body.style.cursor = "url('static/images/waiting.gif')";
     document.body.style.cursor = "wait";
 });
-
-// document.getElementById('overlay').addEventListener('load', function(e) {
-//     // currentTarget est utilisé pour cibler l'overlay et non l'image
-//     e.currentTarget.style.display = 'none';
-// });
-
-// document.getElementById('overlay').style.display = 'none';
