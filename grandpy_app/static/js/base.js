@@ -1,5 +1,7 @@
 function htmlElements(responseText) {
     document.body.style.cursor = "default"; // url directement
+    // document.getElementById('overlay').style.display = 'none'; // graphic cursor
+    
     var data = JSON.parse(responseText);
     var responses = document.querySelector("#responses");
     response = document.createElement("div");
@@ -41,6 +43,9 @@ function htmlElements(responseText) {
     a.href = data['fullurl'];
     a.textContent = "En savoir plus";
     article.appendChild(a);
+
+    let element = document.querySelector("main p:last-of-type");
+    element.scrollIntoView();
 }
 
 // function displayImg() {
@@ -60,6 +65,7 @@ form.addEventListener("submit", function (e) {
     var data = new FormData(form);
     ajaxPost("/api", data, htmlElements);
     // document.body.style.cursor = "url('static/images/waiting.gif')";
+    document.body.style.cursor = "wait";
 });
 
 // document.getElementById('overlay').addEventListener('load', function(e) {
