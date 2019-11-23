@@ -1,5 +1,5 @@
 function htmlElements(responseText) {
-    document.body.style.cursor = "default"; // url directement
+    document.body.style.cursor = "default";
     // document.getElementById('overlay').style.display = 'none'; // graphic cursor
     
     var data = JSON.parse(responseText);
@@ -44,7 +44,7 @@ function htmlElements(responseText) {
     a.textContent = "En savoir plus";
     article.appendChild(a);
 
-    let element = document.querySelector("main p:last-of-type");
+    let element = document.querySelector("#responses p:last-of-type");
     element.scrollIntoView();
 }
 

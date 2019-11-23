@@ -13,7 +13,7 @@ header
 {
     display: flex;
     justify-content: flex-start;
-    background-image: url("../static/images/room_old.jpg");
+    background-image: url("../../static/images/room_old.jpg");
     background-position: cover;
     height: 200px;
     flex-shrink: 0;
@@ -40,21 +40,7 @@ img
 {
     margin: 10px;
     border-radius: 10px;
-
 }
-
-/* section
-{
-    background-color: rgb(166, 176, 218);
-    padding: 10px;
-    margin: 0px 5px 0px 5px;
-    border: 5px solid #888;
-    border-radius: 10px;
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-    height: calc(100vh-2*90px);
-} */
 
 #chat_window
 {
@@ -62,13 +48,12 @@ img
     margin: 1rem auto;
     border: 5px solid #888;
     border-radius: 1.5rem;
-    min-width: 300px;
+    color: black;
     flex-grow: 1;
     overflow-y: hidden;
     display: flex;
     flex-direction: column;
     background-color: aliceblue;
-    color: black;
 }
 
 #questions
@@ -84,12 +69,12 @@ img
     padding: 1rem;
     overflow-y : auto;
     /* border: 1px solid black;
-    border-radius: 10px;
-    background-color: rgb(115, 195, 241);
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    height: 500px; */
+    border-radius: 10px; */
+    /* background-color: rgb(115, 195, 241); */
+    /* display: flex;
+    flex-direction: column; */
+    /* flex-grow: 1; */
+    /* height: 500px; */
 }
 
 .map
