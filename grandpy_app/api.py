@@ -5,7 +5,6 @@ from . import views
 
 class GoogleMapsDownloader:
     """ Download location of site on Googlemaps API"""
-    
 
     def find_place(self, question):
         """ Find location of site """
@@ -113,7 +112,7 @@ class WikiDownloader:
             "explaintext": "",
             "format": "json"
         }
-        
+
         try:
             response = requests.get(
                 "https://fr.wikipedia.org/w/api.php", params=payload)

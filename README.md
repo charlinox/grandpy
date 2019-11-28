@@ -11,7 +11,7 @@ The user is on a web page that shows him an empty area (which will be used to di
 
 The user write a question to grand Py in a natural way and press [enter].
 
-Grand Py gives the user a personnalised answer and give the adresse of the place and then shows a map with a marker the exact location. Finaly, he gives an anecdote about this place.  
+Wait a few secondes and Grand Py gives the user a personnalised answer and give the adresse of the place and then shows a map with a marker the exact location. Finaly, he gives an anecdote about this place.  
 
 The user can then aks him a new question if he wants.
 

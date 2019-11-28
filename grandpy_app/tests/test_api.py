@@ -1,4 +1,4 @@
-from grandpy.api import WikiDownloader, WikiDownloader, GoogleMapsDownloader
+from grandpy.api import WikiDownloader, GoogleMapsDownloader
 
 
 def test_find_place(monkeypatch):
@@ -16,7 +16,7 @@ def test_find_place(monkeypatch):
 
         def json(self):
             return {
-                "candidates":[
+                "candidates": [
                     {
                         "formatted_address": expected_result["address"],
                         "geometry": {
@@ -66,6 +66,7 @@ def test_fetch_by_coord(monkeypatch):
     assert wikiDownloader.fetch_by_coord(
         find_by_place_result) == expected_result
 
+
 def test_fetch_by_title(monkeypatch):
     wikiDownloader = WikiDownloader()
     expected_result = {
@@ -75,6 +76,7 @@ def test_fetch_by_title(monkeypatch):
         "fullurl": "https://fr.wikipedia.org/wiki/Academy_of_Art_University",
         "error": False,
     }
+
     class MockRequestsGet:
         def __init__(self, url, params):
             self.status_code = 200

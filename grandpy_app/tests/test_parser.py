@@ -12,7 +12,8 @@ def test_remove_accents():
 
 def test_parser_text():
     parser = Parser(
-        "Salut, comment vas-tu? Pourrais-tu par hasard m'indiquer quelle est l'adresse de la tour eiffel, s'il te plait ?")
+        "Salut, comment vas-tu? Pourrais-tu par hasard m'indiquer "
+        "quelle est l'adresse de la tour eiffel, s'il te plait ?")
     expected_result = "la tour eiffel"
     assert parser.parser_text().text == expected_result
 

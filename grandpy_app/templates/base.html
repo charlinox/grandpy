@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}" />
     <title>{{title}}    </title>
 </head>
+
 <body>
     <header>
         <div class="image">
@@ -25,6 +27,10 @@
     </div>
 
     <footer>
+        <p id="copyright">&copy; 2019 Charles Casassus</p>
+        <a href="https://github.com/charlinox" title="Mon Github">
+            <img alt="https://icons8.com/icon/467/github - GitHub icon by Icons8" src="https://img.icons8.com/metro/26/000000/github.png" />
+        </a>
         <div class="image">
             <img src="{{ url_for('static', filename='images/gpy_simpson2p.jpg') }}" alt="Grand père Simpson au revoir"/>
         </div>
