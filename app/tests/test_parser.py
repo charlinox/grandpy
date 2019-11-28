@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # coding: utf-8
 
-from grandpy.parser import Parser
+from app.parser import Parser
 
 
 def test_remove_accents():

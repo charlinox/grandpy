@@ -1,4 +1,4 @@
-from grandpy.api import WikiDownloader, GoogleMapsDownloader
+from app.api import WikiDownloader, GoogleMapsDownloader
 
 
 def test_find_place(monkeypatch):

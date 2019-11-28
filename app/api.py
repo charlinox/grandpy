@@ -84,7 +84,6 @@ class WikiDownloader:
                 "https://fr.wikipedia.org/w/api.php", params=payload
             )
             if response.status_code == 200:
-                print(response.content)
                 data = response.json()
                 if data['query']['geosearch']:
                     info['title'] = data['query']['geosearch'][0]['title']
