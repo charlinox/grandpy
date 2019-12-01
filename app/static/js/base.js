@@ -41,14 +41,14 @@ function htmlElements(responseText) {
     let article = document.createElement("article");
     article.classList.add("wikipedia_article");
     if (data["error"] == false) {
-        article.textContent = data["grandpy_answer2"] + data['extract'] + "ZZZZZzzzz  ";
+        article.textContent = data["grandpy_answer2"] + data['extract'] + "  ... ZZZZZzzzz  Il s'est endormi. Profitez en pour ";
     }
     response.appendChild(article);
 
     // create a response link to wikipedia article
     let a = document.createElement("a");
     a.href = data['fullurl'];
-    a.textContent = "En savoir plus";
+    a.textContent = "en savoir plus ici.";
     article.appendChild(a);
 
     // scrolling to last grandpy response
