@@ -29,8 +29,8 @@ class Parser:
         """ Extract the place by parsing the question """
         match = re.search(
             r"(ou se trouve|ou se situe|ou est|l'adresse de| l'adresse d'|aller\
-            |aller a|aller au|aller aux|direction de\
-            |l'endroit nommé)\s+([^,.?!]+)",
+            |aller a|aller au|aller aux|sais sur|dire sur|le lien nomme|direction de\
+            |l'endroit nomme)\s+([^,.?!]+)",
             self.text)
         if match:
             self.text = match.group(2)
